@@ -94,10 +94,15 @@ main {
         <button class="apoiar">Apoiar</button>
         <button class="remover">Remover</button>
     </div>
+    <div class="cartao">
+        <h2>Quadra</h2>
+        <p>Ela e lisa demais.</p>
+        <p>Apoios: <span class="contagem">0</span></p>
+        <button class="apoiar">Apoiar</button>
+        <button class="remover">Remover</button>
+    </div>
 </main>
-
 <script>
-// soma um apoio
 let botoesApoiar = document.querySelectorAll('.apoiar');
 botoesApoiar.forEach(function(botao) {
     botao.addEventListener('click', function() {
@@ -106,6 +111,21 @@ botoesApoiar.forEach(function(botao) {
         let valor = Number(display.textContent);
         valor++;
         display.textContent = valor;
+    });
+});
+
+let botoesRemover = document.querySelectorAll('.remover');
+botoesRemover.forEach(function(botao) {
+    botao.addEventListener('click', function() {
+        let cartao = botao.parentElement;
+        let display = cartao.querySelector('.contagem');
+        let valor = Number(display.textContent);
+        
+
+        if (valor > 0) {
+            valor--;
+            display.textContent = valor;
+        }
     });
 });
 </script>
