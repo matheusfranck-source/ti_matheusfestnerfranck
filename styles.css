@@ -1,0 +1,95 @@
+:root {
+    /* Variáveis de Cores (descrevem os papéis no layout) */
+    --cor-principal: #1F4E79;
+    --cor-principal-hover: #2E75B6;
+    --cor-alerta: #C00000;
+    --cor-alerta-hover: #900000;
+    --fundo-pagina: #F2F2F2;
+    --fundo-cartao: #FFFFFF;
+    --texto-claro: #FFFFFF;
+
+    /* Variáveis de Medidas e Espaçamentos */
+    --espaco-padrao: 20px;
+    --espaco-cartao: 15px;
+    --borda-arredondada: 5px;
+}
+
+body {
+    background-color: var(--fundo-pagina);
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+header {
+    background-color: var(--cor-principal);
+    color: var(--texto-claro);
+    padding: var(--espaco-padrao);
+    text-align: center;
+}
+
+header h1 {
+    color: var(--texto-claro);
+    margin: 0;
+}
+
+header p {
+    color: var(--texto-claro);
+    margin-top: 8px;
+}
+
+main {
+    padding: var(--espaco-padrao);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cartao {
+    background-color: var(--fundo-cartao);
+    padding: var(--espaco-cartao);
+    border-left: 5px solid var(--cor-principal);
+    margin-bottom: var(--espaco-cartao);
+}
+
+.cartao h2 {
+    color: var(--cor-principal);
+    margin-top: 0;
+}
+
+.contagem {
+    font-weight: bold;
+    color: var(--cor-principal);
+    font-size: 20px;
+}
+
+.apoiar {
+    background-color: var(--cor-principal);
+    color: var(--texto-claro);
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--borda-arredondada);
+    cursor: pointer;
+}
+
+.apoiar:hover {
+    background-color: var(--cor-principal-hover);
+}
+
+.remover {
+    background-color: var(--cor-alerta);
+    color: var(--texto-claro);
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--borda-arredondada);
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.remover:hover {
+    background-color: var(--cor-alerta-hover);
+}
+
+/* Foco visível para navegação via teclado */
+.apoiar:focus, .remover:focus {
+    outline: 3px solid var(--cor-alerta);
+    outline-offset: 2px;
+}
