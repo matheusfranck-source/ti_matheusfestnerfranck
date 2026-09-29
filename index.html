@@ -12,12 +12,17 @@ body {
 }
 header {
     background-color: #1F4E79;
+    color: #FFFFFF;
     padding: 20px;
     text-align: center;
 }
 header h1 {
     color: #FFFFFF;
     margin: 0;
+}
+header p {
+    color: #FFFFFF;
+    margin-top: 8px;
 }
 main {
     padding: 20px;
@@ -62,12 +67,19 @@ main {
 .remover:hover {
     background-color: #900000;
 }
+/* Correção 2: Foco visível de propósito para navegação por teclado */
+.apoiar:focus, .remover:focus {
+    outline: 3px solid #C00000; 
+    outline-offset: 2px; 
+}
 </style>
 </head>
 <body>
 
 <header>
     <h1>Radar da Vida Escolar</h1>
+    <!-- Correção 1: Título/frase explicativa no cabeçalho -->
+    <p>Aponte um problema da escola e apoie os que mais te atrapalham.</p>
 </header>
 
 <main>
@@ -97,29 +109,41 @@ main {
 </main>
 
 <script>
-// soma um apoio
-let botoesApoiar = document.querySelectorAll('.apoiar');
-botoesApoiar.forEach(function(botao) {
-    botao.addEventListener('click', function() {
-        let cartao = botao.parentElement;
-        let display = cartao.querySelector('.contagem');
+// Correção 3: O estado dito por escrito e controle booleano por cartão
+let cartoes = document.querySelectorAll('.cartao');
+
+cartoes.forEach(function(cartao) {
+    let apoiado = false; // Booleano individual por cartão
+    let botaoApoiar = cartao.querySelector('.apoiar');
+    let botaoRemover = cartao.querySelector('.remover');
+    let display = cartao.querySelector('.contagem');
+
+    // Alterna o estado do botão Apoiar/Apoiado e atualiza a contagem
+    botaoApoiar.addEventListener('click', function() {
         let valor = Number(display.textContent);
-        valor++;
-        display.textContent = valor;
+        if (!apoiado) {
+            valor++;
+            display.textContent = valor;
+            botaoApoiar.textContent = "Apoiado";
+            apoiado = true;
+        } else {
+            if (valor > 0) valor--;
+            display.textContent = valor;
+            botaoApoiar.textContent = "Apoiar";
+            apoiado = false;
+        }
     });
-});
 
-// tira um apoio, sem deixar ficar negativo
-let botoesRemover = document.querySelectorAll('.remover');
-botoesRemover.forEach(function(botao) {
-    botao.addEventListener('click', function() {
-        let cartao = botao.parentElement;
-        let display = cartao.querySelector('.contagem');
+    // Remove apoio sem deixar a contagem ficar negativa
+    botaoRemover.addEventListener('click', function() {
         let valor = Number(display.textContent);
-
         if (valor > 0) {
             valor--;
             display.textContent = valor;
+            if (apoiado && valor === 0) {
+                botaoApoiar.textContent = "Apoiar";
+                apoiado = false;
+            }
         }
     });
 });
