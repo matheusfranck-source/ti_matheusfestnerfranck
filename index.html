@@ -3,44 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radar da Vida Escolar</title>
-    <!-- Vinculação do arquivo de estilos externo -->
+    <title>Radar da Vida Escolar - React</title>
+    <!-- Estilos externos -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header>
-    <h1>Radar da Vida Escolar</h1>
-    <p>Aponte um problema da escola e apoie os que mais te atrapalham.</p>
-</header>
+    <!-- Ponto de montagem da aplicação React -->
+    <div id="root"></div>
 
-<main>
-    <div class="cartao">
-        <h2>Bebedouro do corredor</h2>
-        <p>O bebedouro vaza desde março e forma poça no piso.</p>
-        <p>Apoios: <span class="contagem">0</span></p>
-        <button class="apoiar">Apoiar</button>
-        <button class="remover">Remover</button>
-    </div>
+    <!-- Bibliotecas do React e Tradutor Babel via CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <div class="cartao">
-        <h2>Fila da cantina</h2>
-        <p>A fila toma quase todo o intervalo dos alunos.</p>
-        <p>Apoios: <span class="contagem">0</span></p>
-        <button class="apoiar">Apoiar</button>
-        <button class="remover">Remover</button>
-    </div>
+    <!-- Arquivo com os componentes React -->
+    <script type="text/babel" src="aula4.js"></script>
 
-    <div class="cartao">
-        <h2>Iluminação da quadra</h2>
-        <p>Metade das lâmpadas está queimada há dois meses.</p>
-        <p>Apoios: <span class="contagem">0</span></p>
-        <button class="apoiar">Apoiar</button>
-        <button class="remover">Remover</button>
-    </div>
-</main>
-
-<!-- Vinculação do JavaScript externo com defer -->
-<script src="script.js" defer></script>
 </body>
 </html>

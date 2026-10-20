@@ -1,5 +1,4 @@
 :root {
-    /* Variáveis de Cores (descrevem os papéis no layout) */
     --cor-principal: #1F4E79;
     --cor-principal-hover: #2E75B6;
     --cor-alerta: #C00000;
@@ -8,7 +7,6 @@
     --fundo-cartao: #FFFFFF;
     --texto-claro: #FFFFFF;
 
-    /* Variáveis de Medidas e Espaçamentos */
     --espaco-padrao: 20px;
     --espaco-cartao: 15px;
     --borda-arredondada: 5px;
@@ -88,7 +86,6 @@ main {
     background-color: var(--cor-alerta-hover);
 }
 
-/* Foco visível para navegação via teclado */
 .apoiar:focus, .remover:focus {
     outline: 3px solid var(--cor-alerta);
     outline-offset: 2px;
