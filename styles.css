@@ -1,92 +1,65 @@
 :root {
-    --cor-principal: #1F4E79;
-    --cor-principal-hover: #2E75B6;
-    --cor-alerta: #C00000;
-    --cor-alerta-hover: #900000;
-    --fundo-pagina: #F2F2F2;
-    --fundo-cartao: #FFFFFF;
-    --texto-claro: #FFFFFF;
+    /* marca */
+    --bg-primary: #2D2A6E;       /* indigo da marca */
+    --bg-accent: #6FA82A;        /* verde de acao */
+    --text-accent: #5C8F22;      /* verde do texto de destaque */
 
-    --espaco-padrao: 20px;
-    --espaco-cartao: 15px;
-    --borda-arredondada: 5px;
+    /* risco de evasao */
+    --risco-alto: #D92D20;
+    --risco-medio: #F79009;
+    --risco-baixo: #12B76A;
+
+    /* neutros */
+    --canvas: #F8FAFC;           /* fundo da pagina */
+    --surface: #FFFFFF;          /* fundo dos cartoes e da barra */
+    --muted: #F1F5F9;            /* realce suave */
+    --text-primary: #0F172A;     /* texto normal */
+    --text-secondary: #64748B;   /* texto secundario */
+
+    /* espaco e cantos */
+    --espaco: 16px;
+    --raio: 10px;
 }
 
 body {
-    background-color: var(--fundo-pagina);
-    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: var(--canvas);
+    color: var(--text-primary);
+    font-family: Inter, Arial, sans-serif;
+}
+
+.sidebar {
+    width: 248px;
+    min-height: 100vh;
+    background-color: var(--surface);
+    padding: var(--espaco);
+    box-sizing: border-box;
+}
+
+.marca {
+    margin-bottom: 24px;
+}
+
+.menu {
+    list-style: none; /* tira as bolinhas da lista */
+    padding: 0;
     margin: 0;
 }
 
-header {
-    background-color: var(--cor-principal);
-    color: var(--texto-claro);
-    padding: var(--espaco-padrao);
-    text-align: center;
+.menu a {
+    display: block;   /* o link ocupa a linha toda, facilitando o clique */
+    padding: 10px 12px;
+    border-radius: var(--raio);
+    color: var(--text-secondary);
+    text-decoration: none; /* tira o sublinhado padrao */
 }
 
-header h1 {
-    color: var(--texto-claro);
-    margin: 0;
+.menu a.ativo {
+    background-color: var(--muted);
+    color: var(--bg-primary);
 }
 
-header p {
-    color: var(--texto-claro);
-    margin-top: 8px;
-}
-
-main {
-    padding: var(--espaco-padrao);
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.cartao {
-    background-color: var(--fundo-cartao);
-    padding: var(--espaco-cartao);
-    border-left: 5px solid var(--cor-principal);
-    margin-bottom: var(--espaco-cartao);
-}
-
-.cartao h2 {
-    color: var(--cor-principal);
-    margin-top: 0;
-}
-
-.contagem {
-    font-weight: bold;
-    color: var(--cor-principal);
-    font-size: 20px;
-}
-
-.apoiar {
-    background-color: var(--cor-principal);
-    color: var(--texto-claro);
-    border: none;
-    padding: 10px 20px;
-    border-radius: var(--borda-arredondada);
-    cursor: pointer;
-}
-
-.apoiar:hover {
-    background-color: var(--cor-principal-hover);
-}
-
-.remover {
-    background-color: var(--cor-alerta);
-    color: var(--texto-claro);
-    border: none;
-    padding: 10px 20px;
-    border-radius: var(--borda-arredondada);
-    cursor: pointer;
-    margin-left: 5px;
-}
-
-.remover:hover {
-    background-color: var(--cor-alerta-hover);
-}
-
-.apoiar:focus, .remover:focus {
-    outline: 3px solid var(--cor-alerta);
+.menu a:focus {
+    outline: 3px solid var(--bg-primary);
     outline-offset: 2px;
 }
